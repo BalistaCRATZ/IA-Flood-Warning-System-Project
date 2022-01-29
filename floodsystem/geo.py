@@ -10,6 +10,10 @@ from haversine import haversine
 
 def stations_by_distance(stations, p):
 
+    """ Returns a list of stations arranged in order of 
+        increasing distance from a particular geographic location
+    """
+
     result = []
 
     for station in stations:

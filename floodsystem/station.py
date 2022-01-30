@@ -7,6 +7,9 @@ for manipulating/modifying station data
 """
 
 
+from unittest.mock import NonCallableMagicMock
+
+
 class MonitoringStation:
     """This class represents a river level monitoring station"""
 
@@ -38,3 +41,34 @@ class MonitoringStation:
         d += "   river:         {}\n".format(self.river)
         d += "   typical range: {}".format(self.typical_range)
         return d
+
+    def typical_range_consistent(self):
+
+        """Returns a boolean value depending on whether
+            a station has inconsistent data in its
+            typical range attribute
+        """
+
+        if self.typical_range is None:
+            return False
+        else:
+            (low, high) = self.typical_range
+
+            if high < low:
+                return False
+
+def inconsistent_typical_range_stations(stations):
+
+    """Returns a list of the inconsistent stations
+        that are part of a given list of stations
+    """
+
+    inconsistent_stations = []
+
+    for station in stations:
+        if station.typical_range_consistent() == False:
+            inconsistent_stations.append(station)
+    
+    return inconsistent_stations
+
+

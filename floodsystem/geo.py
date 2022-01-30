@@ -23,3 +23,35 @@ def stations_by_distance(stations, p):
 
     return sorted_by_key(result, 1)
 
+def rivers_with_station(stations):
+
+    """Returns a set with the names of rivers
+        that have a monitoring station
+    """
+    rivers = set()
+
+    for station in stations:
+        if station.river != None:
+            rivers.add(station.river)
+
+    return rivers
+
+def station_by_river(stations):
+
+    """Returns a dictionary with the names of
+        monitoring stations mapped onto the rivers
+        they are located on
+    """
+    
+    result = {}
+
+    for station in stations:
+        if station.river in result:
+            result[station.river].append(station)
+        else:
+            result[station.river] = [station]
+
+    return result 
+
+
+

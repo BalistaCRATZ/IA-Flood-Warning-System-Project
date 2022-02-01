@@ -1,6 +1,6 @@
 from distutils.command.build import build
 from floodsystem.stationdata import build_station_list
-from floodsystem.geo import stations_by_distance, stations_within_radius, rivers_with_station, station_by_river
+from floodsystem.geo import rivers_by_station_number, stations_by_distance, stations_within_radius, rivers_with_station, station_by_river
 
 stations = build_station_list()
 
@@ -28,3 +28,8 @@ def test_station_by_river():
 
     assert result['Arkle Beck'][0].name == 'Reeth'
 
+def test_rivers_by_station_number():
+    
+    result = rivers_by_station_number(stations, 13)
+#to show that the programm will print stations with equal number of the staions as the Nth entry
+    assert len(result) == 14

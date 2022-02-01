@@ -7,8 +7,11 @@ stations = build_station_list()
 centre = (52.2053, 0.1218)
 r = 10
 
-print(sorted(stations_within_radius(stations, centre, r)))
+def run():
+    print(sorted(stations_within_radius(stations, centre, r)))
 
+
+run()
 
 
 

@@ -32,4 +32,6 @@ def test_rivers_by_station_number():
     
     result = rivers_by_station_number(stations, 13)
 #to show that the programm will print stations with equal number of the staions as the Nth entry
-    assert len(result) == 14
+    assert len(result) == 14 and type(result) == list
+
+

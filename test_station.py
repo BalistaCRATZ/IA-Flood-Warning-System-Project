@@ -35,4 +35,3 @@ def test_inconsistent_typical_range_stations():
     for station in inconsistent_stations:
         assert station.typical_range is None or station.typical_range[0] > station.typical_range[1]
     
-test_inconsistent_typical_range_stations()

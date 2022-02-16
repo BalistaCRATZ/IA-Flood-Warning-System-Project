@@ -7,7 +7,9 @@ for manipulating/modifying station data
 """
 
 
+from turtle import update
 from unittest.mock import NonCallableMagicMock
+
 
 
 class MonitoringStation:
@@ -56,7 +58,23 @@ class MonitoringStation:
 
             if high < low:
                 return False
+            else:
+                return True
+    
+    def relative_water_level(self):
 
+        if self.latest_level is not None and self.typical_range_consistent():
+
+            high, low = self.typical_range[1], self.typical_range[0]
+        
+            relative_level = (self.latest_level-low)/(high-low)
+
+            if relative_level < 10:
+
+                return relative_level
+        else:
+            return None
+        
 def inconsistent_typical_range_stations(stations):
 
     """Returns a list of the inconsistent stations

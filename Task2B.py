@@ -6,6 +6,8 @@ update_water_levels(stations)
 
 threshold_stations = stations_level_over_threshold(stations, 0.8)
 
+print("Stations with relative water level above 0.8: \n")
+
 for s in threshold_stations:
     print(f"{s[0].name} {s[1]}")
 

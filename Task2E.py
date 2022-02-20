@@ -12,7 +12,6 @@ update_water_levels(stations)
 
 #returns top 5 greatest water level stations
 at_risk_stations = stations_highest_rel_level(stations, 5)
-at_risk_stations_id = []
 
 
 #plots water levels of the stations above

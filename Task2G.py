@@ -33,7 +33,7 @@ def severity():
             pass
 
 
-    #returns top 5 greatest water level stations
+    #Filtering between moderate amd severe stations based on gradient 
     dt = 2
     p = 4
 
@@ -55,9 +55,16 @@ def severity():
 
     return low_stations, moderate_stations, high_stations, severe_stations
 
-    print(f"Low risk: {low_stations}")
-    print(f"Moderate risk: {moderate_stations}")
-    print(f"High risk: {high_stations}")
-    print(f"Severe risk: {severe_stations}")
 
-severity()
+l, m, h, s = severity()
+
+low_stations_names = [x.name for x in l]
+moderate_stations_names = [x.name for x in m]
+high_stations_names = [x.name for x in h]
+severe_stations_names = [x.name for x in s]
+
+print(f"Low risk: {low_stations_names}")
+print(f"Moderate risk: {moderate_stations_names}")
+print(f"High risk: {high_stations_names}")
+print(f"Severe risk: {severe_stations_names}")
+

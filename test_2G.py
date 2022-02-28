@@ -23,3 +23,4 @@ def test_2G():
     for i in s:
         assert i.relative_water_level() > 1.5 
     
+test_2G()
